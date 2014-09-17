@@ -9,7 +9,6 @@ module.exports = function(app) {
 
   // Server API Routes
     require('./usuario/')(app);
-    require('./funcionario')(app);
 
 
   // All undefined api routes should return a 404

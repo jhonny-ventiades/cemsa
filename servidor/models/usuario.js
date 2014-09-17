@@ -6,10 +6,7 @@ module.exports=function(sequelize, DataTypes){
         estadoUsuario: DataTypes.BOOLEAN
     },{
         tableName: "usuario",
-        timestamps: false,
-        associate: function(models){
-            Usuario.belongsTo(models.Funcionario);
-        }
+        timestamps: false
     });
     return Usuario;
 };
