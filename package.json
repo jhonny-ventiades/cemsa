@@ -1,0 +1,16 @@
+{
+    "name": "EMSA",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "~4.0.0",
+        "sequelize": "~1.7.3",
+        "sqlite3": "~2.2.3",
+        "lodash": "~2.4.1",
+        "static-favicon": "~1.0.1",
+        "body-parser": "~1.0.0",
+        "cookie-parser": "~1.0.1",
+        "errorhandler": "~1.0.0",
+        "ejs": "~0.8.4"
+    }
+}
