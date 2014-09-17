@@ -15,6 +15,7 @@ db
     .complete(function(err) {
         if (err) {
             console.log("***Error starting the Service***");
+            console.log(err);
         } else {
             http.createServer(app).listen(finaPort, function(){
                 console.log('Express server listening on port '+finaPort);
