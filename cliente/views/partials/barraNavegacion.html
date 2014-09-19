@@ -1,0 +1,94 @@
+<div ng-controller="barraNavegacionCtrl" ng-init="cargarSesion()">
+
+    <nav class="navbar navbar-inverse col-xs-12 barra" role="navigation">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+
+                <ul class="nav navbar-nav navbar-left">
+                    <li style="width: 6%">
+                        <img src="images/logo_emsa.png" alt="logo_emsa" class="img-circle" width="100%" style="background-color: #ffffff">
+                    </li>
+                    <li><p class="navbar-text"> <span class="texto-amarillo" style="font-size: 16px">
+                        Empresa minera sudamericana andina S.R.L</span></p>
+                    </li>
+                </ul>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li id="opcion_{{opcion.id}}"  ng-repeat="opcion in menu">
+                            <a ng-href="{{opcion.enlace}}" class="texto-azul"> {{opcion.opcion}}</a>
+                        </li>
+                        <li class="dropdown" id="nombreOpcionesBtn">
+                            <a href="#" class="dropdown-toggle texto-amarillo" data-toggle="dropdown">
+                                {{usuarioConectado.nombre}}
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a>Datos del Usuario</a></li>
+                                <li role="presentation" class="divider"></li>
+                                <li><a ng-click="salir()" ><strong class="text-danger">Salir</strong></a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <button type="button" id="entrarBtn" class="btn btn-primary navbar-btn" data-toggle="modal"
+                                    data-target="#ventanaEntrar">Entrar</button>
+                        </li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+    </nav>
+
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="ventanaEntrar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content fondo-plomo-claro">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title texto-amarillo" id="myModalLabel">Ingresar al sistema</h4>
+                </div>
+                <div class="modal-body texto-plomo">
+                    <form class="form-horizontal" role="form" novalidate name="ingresoForm">
+                        <div class="form-group">
+                            <label for="nombreUsuarioBox" class="col-xs-4 control-label">Nombre de usuario</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control" id="nombreUsuarioBox"
+                                       ng-model="usuario.nombre" maxlength="30"
+                                       ng-change="validarCampos('nombreUsuario')" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="contraseniaBox" class="col-xs-4 control-label">Contrase&ncaron;a</label>
+                            <div class="col-xs-8">
+                                <input type="password" class="form-control" id="contraseniaBox"
+                                       ng-model="usuario.contrasenia" maxlength="30"
+                                       ng-change="validarCampos('contrasenia')" required >
+                            </div>
+                        </div>
+
+                        <div id="mensajeDatosIncorrectos" class="alert alert-danger" role="alert" hidden >
+                            <strong>Error!</strong> Los datos son incorrectos.</div>
+
+                        <div class="form-group">
+                            <div class="col-xs-offset-4 col-xs-8">
+                                <button type="submit" class="btn btn-primary" ng-click="iniciarSesion()"
+                                        ng-disabled="ingresoForm.$invalid">
+                                    Ingresar
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

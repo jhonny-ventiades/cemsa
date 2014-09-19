@@ -1,0 +1,49 @@
+
+
+body, html {
+    height: 100%;
+    width: 100%;
+ }
+
+body{
+    background-color: #000000;
+}
+
+body, h1, h2, h3, h4, h5, h6 {
+    font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.texto-amarillo{ color : #fec72c !important}
+.texto-azul{ color: #0286E8 !important}
+.texto-plomo{ color: #7a7977 !important}
+
+
+.fondo-amarillo{ background-color : #fec72c }
+.fondo-azul{ background-color: #0286E8}
+.fondo-plomo{ background-color: #7a7977 }
+.fondo-plomo-claro{background-color: #f1f1f1 }
+.fondo-plomo-oscuro{background-color: #222}
+
+.boton-azul{
+    color: #ffffff;
+    background-color: #0286E8;
+}
+.barra{
+    border-bottom: 1px solid #fec72c;
+}
+
+.fondo-texto-carousel{
+    background-color: #ffffff;
+    opacity: 0.5;
+    color: #000000;
+}
+
+
+.pie-de-pagina{
+    border-top: 5px solid #fec72c;
+    background-color: #222 !important;
+    padding-top: 12px;
+    margin-top: 20px;
+
+}

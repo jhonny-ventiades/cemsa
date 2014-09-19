@@ -1,0 +1,153 @@
+<div ng-init="cargarListas()" class="col-xs-12">
+    <div class="col-xs-7 fondo-plomo-oscuro texto-plomo" >
+        <form name="funcionarioForm" class="form-horizontal" role="form">
+            <h1 class="texto-amarillo col-xs-12">Funcionarios</h1>
+            <div class="form-group">
+                <label for="ciBox" class="col-xs-4 control-label">C.I:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="ciBox" ng-model="funcionario.ci"
+                           ng-change="funcionario.ci = validarCampos('cadena',funcionario.ci)" required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="nombreBox" class="col-xs-4 control-label">Nombre:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="nombreBox" ng-model="funcionario.nombre"
+                           ng-change="funcionario.nombre = validarCampos('cadena',funcionario.nombre)" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellidoPaternoBox" class="col-xs-4 control-label">Apellido paterno:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="apellidoPaternoBox"
+                           ng-model="funcionario.apellidoPaterno"
+                           ng-change="funcionario.apellidoPaterno = validarCampos('cadena',funcionario.apellidoPaterno)"
+                           required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="apellidoMaternoBox" class="col-xs-4 control-label">Apellido materno:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="apellidoMaternoBox"
+                           ng-model="funcionario.apellidoMaterno"
+                           ng-change="funcionario.apellidoMaterno = validarCampos('cadena',funcionario.apellidoMaterno)"
+                           required >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="cargoBox" class="col-xs-4 control-label">Cargo:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="cargoBox"
+                           ng-model="funcionario.cargo"
+                           ng-change="funcionario.cargo = validarCampos('cadena',funcionario.cargo)"
+                           required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="telefonoBox" class="col-xs-2 control-label">Tel&eacute;fono:</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" id="telefonoBox"
+                           ng-model="funcionario.telefono"
+                           ng-change="funcionario.telefono = validarCampos('numerico',funcionario.telefono)"
+                           required >
+                </div>
+
+                <label for="celularBox" class="col-xs-2 control-label">Celular:</label>
+                <div class="col-xs-4">
+                    <input type="text" class="form-control" id="celularBox"
+                           ng-model="funcionario.celular"
+                           ng-change="funcionario.celular = validarCampos('numerico',funcionario.celular)"
+                           required >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="fechaNacimientoBox" class="col-xs-3 control-label">Fecha de nacimiento:</label>
+                <div class="col-xs-3">
+                    <input type="date" class="form-control" id="fechaNacimientoBox"
+                           ng-model="funcionario.fechaNacimiento"
+                           required >
+                </div>
+                <label for="lugarNacimientoBox" class="col-xs-3 control-label">Lugar de nacimiento:</label>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" id="lugarNacimientoBox"
+                           ng-model="funcionario.lugarNacimiento"
+                           ng-change="funcionario.lugarNacimiento = validarCampos('cadena',funcionario.lugarNacimiento)"
+                           required >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nacionalidadBox" class="col-xs-4 control-label">Nacionalidad:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="nacionalidadBox"
+                           ng-model="funcionario.nacionalidad"
+                           ng-change="funcionario.nacionalidad = validarCampos('cadena',funcionario.nacionalidad)"
+                           required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fechaIngresoBox" class="col-xs-4 control-label">Fecha de Ingreso:</label>
+                <div class="col-xs-8">
+                    <input type="date" class="form-control" id="fechaIngresoBox"
+                           ng-model="funcionario.fechaIngreso" required >
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="correoBox" class="col-xs-4 control-label">Correo electr&oacute;nico:</label>
+                <div class="col-xs-8">
+                    <input type="text" class="form-control" id="correoBox"
+                           ng-model="funcionario.correoElectronico"
+                           ng-change="funcionario.correoElectronico = validarCampos('cadena',funcionario.correoElectronico)"
+                           required >
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="text-center col-xs-12">
+                    <button type="button" class="btn btn-default" ng-click="limpiarCampos()">
+                        Limpiar campos
+                    </button>
+                    <button id="insertarBtn" type="submit" class="btn btn-primary"
+                            ng-disabled="funcionarioForm.$invalid" ng-click="insertar()">Insertar</button>
+
+                    <button id="editarBtn" type="button" class="btn btn-primary"
+                            ng-disabled="funcionarioForm.$invalid || cambios()"
+                            ng-click="editar()">Editar</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-xs-5">
+
+        <div class="panel fondo-plomo-claro">
+            <div class="panel-heading">
+                <h3 class="panel-title texto-plomo">
+                    <span class="texto-azul glyphicon glyphicon-search"></span>
+                    Buscar un funcionario:
+                </h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <input type="text" id="buscarFuncionarioBox" class="form-control"
+                           placeholder="Escriba el nombre del funcionario..."
+                           ng-model="filtroFuncionario">
+                </div>
+            </div>
+        </div>
+        <div class="list-group">
+            <a href="#" class="list-group-item "
+               ng-repeat="func  in listaFuncionarios | filter:{nombre:filtroFuncionario}"
+               ng-click="funcionarioSeleccionado(func)">
+                <h4 class="list-group-item-heading texto-azul">
+                    {{func.nombre +" "+ func.apellidoPaterno +" "+ func.apellidoMaterno}}
+                </h4>
+                <p class="list-group-item-text texto-plomo">
+                    C.I: {{func.ci}} </br>
+                    Cargo: {{func.cargo}}
+                </p>
+            </a>
+        </div>
+    </div>
+</div>

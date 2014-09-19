@@ -26,16 +26,23 @@ module.exports = function(app) {
       next();
     });
 
-    app.use(express.static(path.join(config.root, '.tmp')));
-    app.use(express.static(path.join(config.root, 'app')));
-    app.set('views', config.root + '/cliente/views');
+
+      app.use(express.static(path.join(config.root, '.tmp')));
+      app.use(express.static(path.join(config.root, 'app')));
+      app.set('views', config.root + '/cliente/views');
+
+      app.use('/',express.static(path.join(config.root, '/cliente/views')));
+      app.use(express.static(path.join(config.root, '/cliente')));
+      app.use(express.static(path.join(config.root, 'public')));
+      app.set('views', config.root + '/cliente/views');
+
   }
 
   if ('production' === env) {
     app.use(compression());
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));
     app.use(express.static(path.join(config.root, 'public')));
-    app.set('views', config.root + '/views');
+    app.set('views', config.root + 'views');
   }
 
   app.engine('html', require('ejs').renderFile);

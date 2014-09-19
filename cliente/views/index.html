@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="emsaApp">
+<head lang="en">
+
+    <meta  content="charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+
+    <link rel="stylesheet" type="text/css" href="/libs/bootstrap/dist/css/bootstrap.css" />
+
+    <link rel="stylesheet" type="text/css" href="/styles/style.css" media="all"/>
+
+    <script src="/libs/jquery/dist/jquery.js"></script>
+    <script src="/libs/angular/angular.js"></script>
+    <script src="/libs/angular-resource/angular-resource.js"></script>
+    <script src="/libs/angular-cookies/angular-cookies.js"></script>
+    <script src="/libs/angular-route/angular-route.js"></script>
+    <script src="/libs/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/mainCtrl.js"></script>
+    <script src="/scripts/controllers/barraNavegacionCtrl.js"></script>
+    <script src="/scripts/controllers/funcionariosCtrl.js"></script>
+    <script src="/scripts/services/usuarios.js"></script>
+    <script src="/scripts/services/funcionarios.js"></script>
+
+    <title>EMSA</title>
+</head>
+
+<body>
+
+    <div ng-include="'partials/barraNavegacion'"></div>
+
+    <div ng-view=""></div>
+
+    <div ng-include="'partials/footer'" ></div>
+</body>
+</html>

@@ -21,4 +21,11 @@ module.exports = function(app) {
   // All other routes to use Angular routing in cliente/scripts/cliente.js
   app.route('/partials/*')
     .get(controllers.partials);
+
+  //Redirecciona desde una url diferente de partials y api
+  app.route('/*')
+      .get(
+      function(req, res, next) {
+          next();
+      }, controllers.index);
 };
