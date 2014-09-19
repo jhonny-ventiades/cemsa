@@ -12,7 +12,7 @@ module.exports=function(sequelize, DataTypes){
         lugarNacimiento:DataTypes.STRING(100),
         nacionalidad:DataTypes.STRING(100),
         fechaIngreso:DataTypes.DATE,
-        email:DataTypes.STRING(50),
+        correoElectronico:DataTypes.STRING(50),
         estadoFuncionario: DataTypes.BOOLEAN,
         cargo:DataTypes.STRING(50)
     },{
